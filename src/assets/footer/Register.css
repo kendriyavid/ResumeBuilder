@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap');
+
+div.Register{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    
+    background-size: 600% 600%;
+
+    justify-content: center;
+}
+
+h1#register{
+    font-family: 'Sora', sans-serif
+}
+
+@media screen and ( max-width: 546px) {
+    div#formRegister{
+        padding: 15px;
+        margin: 10px;
+        flex-basis: content;
+    }
+
+}
+
+div#formRegister{
+    flex-basis: 400px;
+    padding: 50px;
+    border-radius: 10px;
+    margin: 50px;
+    background: linear-gradient(81deg, #4162db, #db353e);
+    -webkit-animation: AnimationName 7s ease infinite;
+    -moz-animation: AnimationName 7s ease infinite;
+    animation: AnimationName 7s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}

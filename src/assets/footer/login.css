@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap');
+
+div#lCard{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    align-items: center;
+    
+    justify-content: center;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+
+form#login{
+    padding:10px;
+    background: linear-gradient(81deg, #4162db, #db353e, #a1c14f);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 7s ease infinite;
+    -moz-animation: AnimationName 7s ease infinite;
+    animation: AnimationName 7s ease infinite;
+
+}
+
+h1{
+    font-family: 'Sora', sans-serif
+}
+
+form#login{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 10px;
+    margin: 70px;
+}
+
+div#formInput{
+    margin-bottom: 10px;
+}
+

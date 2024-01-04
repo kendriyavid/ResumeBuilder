@@ -1,0 +1,40 @@
+div#footer{
+    display: flex;
+    
+    background-color: black;
+    height: 200px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 100px 100px 0px 0px;
+    border-radius: 100px 100px 0px 0px; 
+    font-family: 'Sora', sans-serif;
+    
+}
+
+div#f1{
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-self: flex-end;
+    color: white;
+    text-align: start;
+    font-size: 40px;
+    flex-basis:content
+}
+
+div#f2{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+div#f3{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+@media screen and ( max-width: 546px) {
+    div#f1{
+        font-size: 32px;
+    }
+    div#footer{
+        height: 150px;
+    }
+}

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap');
+
+
+
+input{
+    margin: 10px;
+    border: none;
+    padding: 15px;
+    border-radius: 3px;
+    font-family: 'Sora', sans-serif;
+}
+
+div.formInput{
+    display: flex;
+    justify-content:space-between;
+}
+
+label{
+    display: flex;
+    font-family: 'Sora', sans-serif;
+    align-items: center;
+}
+
+Button{
+    margin: 10px;
+}
