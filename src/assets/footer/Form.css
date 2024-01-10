@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap');
+
+
+
+h2#r1form{
+    font-family: 'Sora', sans-serif;
+    margin: 30px;
+}
+
+div.Form1{
+    display: flex;
+    justify-content: center;
+}
+
+form#one{
+    flex-basis: 400px;
+    border: solid 1px;
+    border-color: black;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+div.Texteditor{
+    display: flex;
+}
+
+div#Texteditor{
+    width: 320px;
+    height: 200px;
+
+}
+
+input.textarea{
+    height: 200px;
+    width: 430px;
+}
+
+div#container1{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+p#skillissue{
+    font-family: 'Sora', sans-serif;
+}
+
+
+@media only screen and (max-width: 430px) {
+    form#one{
+        flex-basis: 400px;
+        border: solid 1px;
+        border-color: black;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    div#Texteditor{
+        width: 320px;
+        height: 200px;
+    
+    }
+    
+    input.textarea{
+        height: 200px;
+        width: 320px;
+    }
+  }

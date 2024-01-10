@@ -4,7 +4,7 @@
 
 input{
     margin: 10px;
-    border: none;
+    border: 1px solid black;
     padding: 15px;
     border-radius: 3px;
     font-family: 'Sora', sans-serif;
@@ -24,3 +24,16 @@ label{
 Button{
     margin: 10px;
 }
+
+@media only screen and (max-width: 430px) {
+    input{
+        margin: 5px;
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 3px;
+        font-family: 'Sora', sans-serif;
+    }
+    div#formInput{
+        font-size: 14px;
+    }
+  }
