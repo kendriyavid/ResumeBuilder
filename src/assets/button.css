@@ -25,6 +25,7 @@ button#black:hover{
 button#white{
     background-color:white;
     color: black;
+    height: 52px;
     padding:16px 20px 16px 20px;
     border-radius: 8px;
     text-align: center;
@@ -50,6 +51,33 @@ button#special{
     font-family: 'Sora', sans-serif;
 }
 
+@media only screen and (max-width: 430px) {
+    button#black{
+        background-color:black;
+        color: white;
+        height: 42px;
+        padding:4px 14px 4px 14px;
+        
+        border-radius: 8px;
+        text-align: center;
+        vertical-align: middle;
+        font-size:14px;
+        border: none;
+        font-family: 'Sora', sans-serif;
+    }
 
+    button#white{
+        background-color:white;
+        color: black;
+        height: 42px;
+        padding:4px 14px 4px 14px;
+        border-radius: 8px;
+        text-align: center;
+        vertical-align: middle;
+        font-size:14px;
+        border: none;
+        font-family: 'Sora', sans-serif;
+    }
+  }
 
 

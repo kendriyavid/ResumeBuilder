@@ -3,6 +3,7 @@ import Button from "./button"
 import Navbar from "./navbar"
 import './homepage.css'
 import Footer from "./footer/footer"
+import Card from "./footer/Card"
 function Homepage() {
     return(
         <>
@@ -15,6 +16,9 @@ function Homepage() {
                     <Button id='black' type='button' name = 'Get Started'></Button>
                 </div>
             </div>
+        </div>
+        <div id="CC">
+            <Card></Card>
         </div>
         <Footer></Footer>
         </>

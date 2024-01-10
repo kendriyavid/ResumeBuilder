@@ -3,10 +3,11 @@
    
 }
 div#navbar{
+    height: 53px;
     padding: 0px;
-    margin-top: 5px;
     margin-left: 15px;
     margin-right: 15px;
+    align-items: start;
     flex-shrink: 1;
     flex-grow: 1;
     background-color: white;

@@ -37,19 +37,21 @@ h1{
     border: black;
 }
 
-@media screen and ( max-width: 546px) {
+@media screen and ( max-width: 430px) {
     div#one{
         font-family: 'Sora', sans-serif;
     
-        font-size: 32px;
+        font-size: 28px;
         font-weight: bolder;
     }
     p#hero{
-        font-size: 22px;
+        font-size: 18px;
     }
 
     div#one div#insideone{
-        padding:40px;
+        padding:20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
     div#hero{
         height: 450px;
