@@ -13,11 +13,15 @@ import Form3 from './assets/footer/Form3.jsx'
 import Form4 from './assets/footer/Form4.jsx'
 import Form5 from './assets/footer/Form5.jsx'
 import Card from './assets/footer/Card.jsx'
-
+import Mainform from './assets/footer/Mainform.jsx'
+import Textarea from './assets/footer/textarea.jsx'
+import FormInput from './assets/footer/FormInput.jsx'
+import Form6 from './assets/footer/Form6.jsx'
+import { BrowserRouter,Routes, Route } from 'react-router-dom'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div id='container'>
-     <Form5></Form5>
+      <App></App>
     </div>
   </React.StrictMode>
 )
