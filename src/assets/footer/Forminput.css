@@ -4,7 +4,7 @@
 
 input{
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(236, 53, 53);
     padding: 15px;
     border-radius: 3px;
     font-family: 'Sora', sans-serif;
@@ -35,5 +35,8 @@ Button{
     }
     div#formInput{
         font-size: 14px;
+    }
+    label{
+        font-size: medium;
     }
   }

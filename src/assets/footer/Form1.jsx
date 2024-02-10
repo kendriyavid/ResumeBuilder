@@ -1,26 +1,24 @@
 import React from 'react'
-import Navbar from '../navbar'
-import Footer from './footer'
 import FormInput from './FormInput'
 import Button from '../button'
 import './Form.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import Mainform from './Mainform'
+function Form(props) {
 
-
-function Form() {
-
-  const [values, setvalues] = useState(
-    {
-      "firstName":'',
-      "lastName":'',
-      "profession":'',
-      "city":'',
-      "country":'',
-      "pincode":'',
-      "phone":'',
-    }
-  )
   
+  // const [values, setvalues] = useState(
+  //   {
+  //     "firstName":'',
+  //     "lastName":'',
+  //     "profession":'',
+  //     "city":'',
+  //     "country":'',
+  //     "pincode":'',
+  //     "phone":'',
+  //   }
+  // )
+
   const inputs=[
     {
       id:1,
@@ -38,9 +36,9 @@ function Form() {
     },
     {
       id:3,
-      name: "profession",
+      name: "email",
       type: "text",
-      label:"Profession",
+      label:"Email",
       required:true
     },
     {
@@ -74,34 +72,30 @@ function Form() {
   ]
   
   
-  
   const onChange = (e)=>{
-    setvalues({...values,[e.target.name]:e.target.value})
+    props.setformdata({...props.formdata,[e.target.name]:e.target.value})
   }
+
+  // const {setformData} = useContext(formContext)
 
   const handleSubmit = (e)=>{
     e.preventDefault()
     console.log('submitted')
-    // axios.post('http://localhost:3000/register', values )
-    // .then(Response=>console.log(Response))
-    // .catch(err=>console.log(err))
-    console.log(values)
+    // setformData(props.formdata)
+    console.log(props.formdata);
   }
 
-
+  
   return (
     <>
-         <Navbar></Navbar>
          <h2 id='r1form'>Personal Details</h2>
          <div className='Form1'>
             <form id='one' onSubmit={handleSubmit}>
               {inputs.map((input)=>(
-                  <FormInput key={input.id}{...input} value={values[input.name]} onChange={onChange}></FormInput>    
+                  <FormInput key={input.id}{...input} value={props.formdata[input.name]} onChange={onChange}></FormInput>    
               ))}
-                <Button name='Next' id='black'></Button>
             </form>
          </div>
-        <Footer></Footer>
     </>
    
   )

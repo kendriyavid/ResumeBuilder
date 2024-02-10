@@ -87,7 +87,7 @@ function Register() {
                 <FormInput key={input.id}{...input} value={values[input.name]} onChange={onChange} ></FormInput>    
             ))}
         <Button id ='black'name='Register'></Button>
-        <Button id ='black'name='Login   '></Button>
+        <Button id ='black'name='Login' to='/login'></Button>
         
         </form>
         </div>

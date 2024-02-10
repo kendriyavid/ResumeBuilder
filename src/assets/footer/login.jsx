@@ -7,6 +7,7 @@ import axios from 'axios'
 import Navbar from './../navbar'
 import Footer from './footer'
 import {Link ,NavLink} from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 function Login() {
 
@@ -38,7 +39,15 @@ function Login() {
     e.preventDefault();
     console.log('submitted')
     axios.post('http://localhost:3000/auth', values )
-    .then(Response=>console.log(Response))
+    .then(Response=>{
+      console.log(Response)
+      // if (Response.status==201){
+      //   console.log("here")
+      //   return <Navigate replace to={'/login'}></Navigate>
+      // }else{
+      //   return <Navigate replace to={'/register'}></Navigate>
+      // }
+    })
     .catch(err=>console.log(err))
   }
 
@@ -56,7 +65,7 @@ const onChange = (e)=>{
               <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}></FormInput>
             ))}
             <Button id='black' name='LogIn' type='submit' ></Button>
-            <Button id='black' name='Register' type='submit' ></Button>
+            <Button id='black' name='Register' type='submit'to='/register' ></Button>
         </form>
       </div>
       <Footer></Footer>
