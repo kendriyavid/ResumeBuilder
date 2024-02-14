@@ -9,7 +9,7 @@ div#navbar{
     margin-right: 15px;
     align-items: start;
     flex-shrink: 1;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     background-color: white;
     display: flex;
     justify-content: space-around; 

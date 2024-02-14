@@ -3,7 +3,7 @@ import { useRef,useEffect,useState } from 'react'
 import FormInput from './FormInput'
 import Button from '../button'
 import './Register.css'
-import axios from 'axios'
+import axios from './../../api/axios'
 import Footer from './footer'
 import Navbar from '../navbar'
 function Register() {
@@ -67,8 +67,11 @@ function Register() {
       const handleSubmit = (e)=>{
         e.preventDefault()
         console.log('submitted')
-        axios.post('http://localhost:3000/register', values )
-        .then(Response=>console.log(Response))
+        axios.post('/register', values,{
+            headers:{'Content-Type':'application/json'},
+            withCredentials:true
+        })
+        .then(Response=>console.log(Response.data))
         .catch(err=>console.log(err))
       }
 
