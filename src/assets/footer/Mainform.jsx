@@ -75,8 +75,8 @@ function Mainform() {
             alert("Please fill in all required fields.");
             return;
         } else if (page === 5) {
-            const UserData = { "fName":formmdata.firstName,
-            "lName":formmdata.lastName,
+            const UserData = { "fname":formmdata.firstName,
+            "lname":formmdata.lastName,
             "email":formmdata.email,
             "city":formmdata.city,
             "country":formmdata.country,
