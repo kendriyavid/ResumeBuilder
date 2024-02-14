@@ -21,9 +21,31 @@ div#one{
     flex-basis: content;
 }
 
+@-webkit-keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:70% 0%}
+    50%{background-position:31% 100%}
+    100%{background-position:70% 0%}
+}
+
 div#one div#insideone{
     text-align: start;
-    background: linear-gradient(81deg, #4162db, #db353e, #a1c14f);
+    background: linear-gradient(81deg, #4162db, #db353e);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 7s ease infinite;
+    -moz-animation: AnimationName 7s ease infinite;
+    animation: AnimationName 7s ease infinite;
+
     border-radius: 10px;
     padding:60px;
 }

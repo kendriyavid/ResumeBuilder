@@ -1,16 +1,22 @@
 import React from 'react'
 import './login.css'
-import { useRef,useEffect,useState } from 'react'
+import { useRef,useEffect,useState, } from 'react'
+import useAuth from '../../hooks/useAuth'
 import FormInput from './FormInput'
 import Button from '../button'
-import axios from 'axios'
+import axios from './../../api/axios'
 import Navbar from './../navbar'
 import Footer from './footer'
-import {Link ,NavLink} from 'react-router-dom'
+import {Link ,useNavigate, useLocation} from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
 
-function Login() {
+const LOGIN_URL = '/auth'
 
+function Login() {
+  const {setAuth} = useAuth()
+  const navigate = useNavigate();
+  const location = useLocation
+  const from = location.state?.from?.pathname || "/"
   const [values, setvalues]=useState({
     email:'',
     password:'',
@@ -35,12 +41,19 @@ function Login() {
     }
   ]
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault();
     console.log('submitted')
-    axios.post('http://localhost:3000/auth', values )
+    await axios.post(LOGIN_URL, values,
+      {
+        headers:{'Content-Type':'application/json'},
+        withCredentials:true
+      } )
     .then(Response=>{
-      console.log(Response)
+      console.log(Response.data.accessToken)
+      const accessToken = Response.data.accessToken;
+      setAuth({accessToken})
+      navigate(from,{replace:true});
       // if (Response.status==201){
       //   console.log("here")
       //   return <Navigate replace to={'/login'}></Navigate>

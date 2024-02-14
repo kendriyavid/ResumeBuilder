@@ -18,10 +18,13 @@ import Textarea from './assets/footer/textarea.jsx'
 import FormInput from './assets/footer/FormInput.jsx'
 import Form6 from './assets/footer/Form6.jsx'
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
+import { AuthProvider } from '../context/AuthContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.StrictMode> 
+    <AuthProvider>
     <div id='container'>
       <App></App>
     </div>
+    </AuthProvider>
   </React.StrictMode>
 )

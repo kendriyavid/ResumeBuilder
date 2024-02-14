@@ -55,12 +55,27 @@ function Mainform() {
         }
     }
 
-function handleNext(){
-    if( page>5){
-        return 
-    }else if (page==5){
-        const UserData = {
-            "fName":formmdata.firstName,
+
+
+    function handleNext() {
+        // Validation to check if any of the required fields are empty
+        if (page === 0 && (!formmdata.firstName || !formmdata.lastName || !formmdata.email)) {
+            alert("Please fill in all required fields.");
+            return;
+        } else if (page === 1 && (!formmdata.schoolName || !formmdata.slocation || !formmdata.degree || !formmdata.fos || !formmdata.gdate)) {
+            alert("Please fill in all required fields.");
+            return;
+        } else if (page === 2 && (!formmdata.city || !formmdata.country || !formmdata.pincode || !formmdata.phone)) {
+        alert("Please fill in all required fields.");
+        return;
+        } else if (page === 3 && (!formmdata.title || !formmdata.organization || !formmdata.location || !formmdata.startdate || !formmdata.enddate || !formmdata.experience)) {
+            alert("Please fill in all required fields.");
+            return;
+        } else if (page === 4 && !formmdata.aboutuser) {
+            alert("Please fill in all required fields.");
+            return;
+        } else if (page === 5) {
+            const UserData = { "fName":formmdata.firstName,
             "lName":formmdata.lastName,
             "email":formmdata.email,
             "city":formmdata.city,
@@ -79,15 +94,53 @@ function handleNext(){
             "enddate": formmdata.enddate,
             "experience":formmdata.experience,
             "skills":formmdata.skills,
-            "aboutuser":formmdata.aboutuser
+            "aboutuser":formmdata.aboutuser };
+            axios.post("http://localhost:3000/form", UserData,{withCredentials:true})
+                .then(response => {
+                    console.log("Registration successful");
+                })
+                .catch(error => {
+                    console.error("Registration failed:", error);
+                });
+        } else {
+            setpage(page + 1);
+            console.log(page);
+            console.log(formmdata);
         }
-        axios.post("http://localhost:3000/form",UserData)
-    }
-    else{
-        setpage(page+1)
-        console.log(page)
-        console.log(formmdata)
-    }
+    
+
+    // if( page>5){
+    //     return 
+    // }else if (page==5){ 
+    //     const UserData = {
+            // "fName":formmdata.firstName,
+            // "lName":formmdata.lastName,
+            // "email":formmdata.email,
+            // "city":formmdata.city,
+            // "country":formmdata.country,
+            // "pincode":formmdata.pincode,
+            // "phone":formmdata.phone,
+            // "schoolName": formmdata.schoolName,
+            // "slocation": formmdata.slocation,
+            // "degree": formmdata.degree,
+            // "fos": formmdata.fos,
+            // "gdate": formmdata.gdate,
+            // "title": formmdata.title,
+            // "organization": formmdata.organization,
+            // "location": formmdata.location,
+            // "startdate": formmdata.startdate,
+            // "enddate": formmdata.enddate,
+            // "experience":formmdata.experience,
+            // "skills":formmdata.skills,
+            // "aboutuser":formmdata.aboutuser
+    //     }
+    //     axios.post("http://localhost:3000/form",UserData)
+    // }
+    // else{
+    //     setpage(page+1)
+    //     console.log(page)
+    //     console.log(formmdata)
+    // }
 }
 
 function handlePrev(){
@@ -104,8 +157,11 @@ function handlePrev(){
    <>
         <Navbar></Navbar>
         <h2 id="r1form">{returnpage()} </h2>
-        <Button name='Next' id='black' onclick={handleNext}></Button>
+        <div className='Form1'>
         <Button name='Prev' id='black'  onclick={handlePrev}></Button>
+        <Button name='Next' id='black' onclick={handleNext}></Button>
+        </div>
+        
         <Footer></Footer>
    </>
   )

@@ -24,17 +24,6 @@ h1#register{
 
 }
 
-div#formRegister{
-    flex-basis: 400px;
-    padding: 50px;
-    border-radius: 10px;
-    margin: 50px;
-    background: linear-gradient(81deg, #4162db, #db353e);
-    -webkit-animation: AnimationName 7s ease infinite;
-    -moz-animation: AnimationName 7s ease infinite;
-    animation: AnimationName 7s ease infinite;
-}
-
 @-webkit-keyframes AnimationName {
     0%{background-position:70% 0%}
     50%{background-position:31% 100%}
@@ -50,3 +39,16 @@ div#formRegister{
     50%{background-position:31% 100%}
     100%{background-position:70% 0%}
 }
+div#formRegister{
+    flex-basis: 400px;
+    padding: 50px;
+    border-radius: 10px;
+    margin: 50px;
+    background: linear-gradient(81deg, #4162db, #db353e);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 7s ease infinite;
+    -moz-animation: AnimationName 7s ease infinite;
+    animation: AnimationName 7s ease infinite;
+}
+
