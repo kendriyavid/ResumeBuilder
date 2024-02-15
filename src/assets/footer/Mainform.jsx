@@ -1,14 +1,14 @@
 import React from 'react'
 import Footer from './footer'
 import Navbar from '../navbar'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Form1 from './Form1.jsx'
 import Form2 from './Form2.jsx'
 import Form3 from './Form3.jsx'
 import Form4 from './Form4.jsx'
 import Form5 from './Form5.jsx'
 import Button from '../button'
-import axios from 'axios'
+import useAxiosPrivate from '../../hooks/useaxiosPrivate.js'
 import Form6 from './Form6.jsx'
 
 
@@ -39,6 +39,7 @@ function Mainform() {
             "aboutuser":''
           }
     )
+    const axiosPrivate = useAxiosPrivate();
     const returnpage = ()=>{
         if( page===0){
             return <Form1 formdata ={formmdata} setformdata = {setformdata}/>
@@ -95,7 +96,7 @@ function Mainform() {
             "experience":formmdata.experience,
             "skills":formmdata.skills,
             "aboutuser":formmdata.aboutuser };
-            axios.post("http://localhost:3000/form", UserData,{withCredentials:true})
+            axiosPrivate.post("http://localhost:3000/form", UserData,{withCredentials:true})
                 .then(response => {
                     console.log("Registration successful");
                 })

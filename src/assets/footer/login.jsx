@@ -1,6 +1,6 @@
 import React from 'react'
 import './login.css'
-import { useRef,useEffect,useState, } from 'react'
+import { useRef,useEffect,useState,useContext } from 'react'
 import useAuth from '../../hooks/useAuth'
 import FormInput from './FormInput'
 import Button from '../button'
@@ -14,6 +14,7 @@ const LOGIN_URL = '/auth'
 
 function Login() {
   const {setAuth} = useAuth()
+  const {auth} = useAuth();
   const navigate = useNavigate();
   const location = useLocation
   const from = location.state?.from?.pathname || "/"
@@ -52,8 +53,12 @@ function Login() {
     .then(Response=>{
       console.log(Response.data.accessToken)
       const accessToken = Response.data.accessToken;
-      setAuth({accessToken})
+      console.log(accessToken)
+      console.log("here")
+      setAuth({accessToken:accessToken})
       navigate(from,{replace:true});
+      localStorage.setItem('accessToken',accessToken)
+
       // if (Response.status==201){
       //   console.log("here")
       //   return <Navigate replace to={'/login'}></Navigate>
