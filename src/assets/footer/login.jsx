@@ -56,8 +56,6 @@ function Login() {
       console.log(accessToken)
       console.log("here")
       setAuth({accessToken:accessToken})
-      navigate(from,{replace:true});
-      localStorage.setItem('accessToken',accessToken)
 
       // if (Response.status==201){
       //   console.log("here")
