@@ -126,8 +126,8 @@ const inputs=[
   {
     id:5,
     name: "gdate",
-    type: "text",
-    label:"Graduation Details",
+    type: "date",
+    label:"Graduation Date",
     required:true
   },
 ]

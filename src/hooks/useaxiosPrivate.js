@@ -2,6 +2,7 @@ import  { axiosPrivate } from "../api/axios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
 import useAuth from "./useAuth";
+// const navigate = useNavigate(); // Initialize navigate function
 
 const useAxiosPrivate = ()=>{
     const refresh = useRefreshToken

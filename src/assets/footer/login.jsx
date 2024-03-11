@@ -8,8 +8,6 @@ import axios from './../../api/axios'
 import Navbar from './../navbar'
 import Footer from './footer'
 import {Link ,useNavigate, useLocation} from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
-
 const LOGIN_URL = '/auth'
 
 function Login() {
@@ -50,12 +48,38 @@ function Login() {
         headers:{'Content-Type':'application/json'},
         withCredentials:true
       } )
-    .then(Response=>{
-      console.log(Response.data.accessToken)
-      const accessToken = Response.data.accessToken;
-      console.log(accessToken)
-      console.log("here")
-      setAuth({accessToken:accessToken})
+    // .then(Response=>{
+    //   if(Response.data ==="User not Found"){
+    //     console.log("inside the if")
+    //     navigate("/register")
+    //     return
+    //   }else{
+    //     console.log(Response.data)
+    //     console.log(Response.data.accessToken)
+    //     const accessToken = Response.data.accessToken;
+    //     localStorage.setItem("accessToken",accessToken)
+    //     console.log(accessToken)
+    //     console.log("here")
+    //     setAuth({accessToken:accessToken})
+    //   }
+    .then((response) => {
+      console.log("Response received:", response.data);
+      if (response.data.message === "User not Found") {
+          console.log("Redirecting to Register...");
+          navigate('/register');
+      } else {
+          console.log(response.data);
+          console.log(response.data.accessToken);
+          const accessToken = response.data.accessToken;
+          localStorage.setItem("accessToken", accessToken);
+          console.log(accessToken);
+          console.log("here");
+          setAuth({ accessToken: accessToken });
+          navigate("/")
+      }
+  })
+  .catch(err => console.log(err));
+  }
 
       // if (Response.status==201){
       //   console.log("here")
@@ -63,9 +87,7 @@ function Login() {
       // }else{
       //   return <Navigate replace to={'/register'}></Navigate>
       // }
-    })
-    .catch(err=>console.log(err))
-  }
+    
 
 const onChange = (e)=>{
   setvalues({...values,[e.target.name]:e.target.value})

@@ -6,18 +6,21 @@ import Register from './assets/footer/Register'
 import Mainform from './assets/footer/Mainform'
 import Layout from './assets/layout'
 import RequireAuth from './requireAuth'
+import Resume from './assets/Resume'
+import Form0 from './assets/footer/Form0'
 function App (){
   return<BrowserRouter>
   <Routes>
     <Route path='/' element={<Layout/>}>
         <Route path='/' element={<Homepage/>}></Route>
         <Route path='/templates' element={<Homepage/>}></Route>
-        <Route path='/resume' element={<Homepage/>}></Route>
+        <Route path='/resume' element={<Resume/>}></Route>
         <Route element={<RequireAuth/>}>
           <Route path='/resumebuilder' element={<Mainform/>}></Route>
         </Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
+        <Route path='/form0' element={<Form0></Form0>}></Route>
     </Route>
   </Routes>
   </BrowserRouter>
