@@ -10,11 +10,14 @@ import Form5 from './Form5.jsx'
 import Button from '../button'
 import useAxiosPrivate from '../../hooks/useaxiosPrivate.js'
 import Form6 from './Form6.jsx'
+import { useNavigate } from 'react-router-dom'
+import Form0 from './Form0.jsx'
 
 
 function Mainform() {
-
+    const navigate  = useNavigate()
     const [page,setpage] = useState(0)
+    const [selectedTemplate, setSelectedTemplate] = useState(null); // New state variable to store selected resume template
     const [formmdata,setformdata] = useState(
         {
             "firstName":'',
@@ -36,22 +39,24 @@ function Mainform() {
             "enddate": '',
             "experience":'',
             "skills":[],
-            "aboutuser":''
+            "aboutuser":'',
           }
     )
     const axiosPrivate = useAxiosPrivate();
     const returnpage = ()=>{
         if( page===0){
-            return <Form1 formdata ={formmdata} setformdata = {setformdata}/>
+            return <Form0 onSelectTemplate={setSelectedTemplate}/>
         }else if (page ===1){
-            return <Form2 formdata ={formmdata} setformdata = {setformdata}/>
+            return <Form1 formdata ={formmdata} setformdata = {setformdata}/>
         }else if (page===2){
-            return <Form3 formdata ={formmdata} setformdata = {setformdata}/>
+            return <Form2 formdata ={formmdata} setformdata = {setformdata}/>
         }else if (page===3){
-            return <Form4 formdata ={formmdata} setformdata = {setformdata}/>
+            return <Form3 formdata ={formmdata} setformdata = {setformdata}/>
         }else if (page===4){
-            return<Form6 formdata ={formmdata} setformdata = {setformdata}></Form6>
+            return<Form4 formdata ={formmdata} setformdata = {setformdata}/>
         }else if (page==5){
+            return <Form6 formdata ={formmdata} setformdata = {setformdata}/>
+        }else if (page==6){
             return <Form5 formdata ={formmdata} setformdata = {setformdata}/>
         }
     }
@@ -60,22 +65,26 @@ function Mainform() {
 
     function handleNext() {
         // Validation to check if any of the required fields are empty
-        if (page === 0 && (!formmdata.firstName || !formmdata.lastName || !formmdata.email)) {
+        if (page === 0 && (!selectedTemplate)) {
+            alert("Please select the template.");
+            return;
+        }
+        else if (page === 1 && (!formmdata.firstName || !formmdata.lastName || !formmdata.email)) {
             alert("Please fill in all required fields.");
             return;
-        } else if (page === 1 && (!formmdata.schoolName || !formmdata.slocation || !formmdata.degree || !formmdata.fos || !formmdata.gdate)) {
+        } else if (page === 2 && (!formmdata.schoolName || !formmdata.slocation || !formmdata.degree || !formmdata.fos || !formmdata.gdate)) {
             alert("Please fill in all required fields.");
             return;
-        } else if (page === 2 && (!formmdata.city || !formmdata.country || !formmdata.pincode || !formmdata.phone)) {
+        } else if (page === 3 && (!formmdata.city || !formmdata.country || !formmdata.pincode || !formmdata.phone)) {
         alert("Please fill in all required fields.");
         return;
-        } else if (page === 3 && (!formmdata.title || !formmdata.organization || !formmdata.location || !formmdata.startdate || !formmdata.enddate || !formmdata.experience)) {
+        } else if (page === 4 && (!formmdata.title || !formmdata.organization || !formmdata.location || !formmdata.startdate || !formmdata.enddate || !formmdata.experience)) {
             alert("Please fill in all required fields.");
             return;
-        } else if (page === 4 && !formmdata.aboutuser) {
+        } else if (page === 5 && !formmdata.aboutuser) {
             alert("Please fill in all required fields.");
             return;
-        } else if (page === 5) {
+        } else if (page === 6) {
             const UserData = { "fname":formmdata.firstName,
             "lname":formmdata.lastName,
             "email":formmdata.email,
@@ -95,10 +104,16 @@ function Mainform() {
             "enddate": formmdata.enddate,
             "experience":formmdata.experience,
             "skills":formmdata.skills,
-            "aboutuser":formmdata.aboutuser };
+            "aboutuser":formmdata.aboutuser,
+            "selectedTemplate": selectedTemplate
+    };
             axiosPrivate.post("http://localhost:3000/form", UserData,{withCredentials:true})
                 .then(response => {
-                    console.log("Registration successful");
+                    if (response.data.message ==="Unauthorized"){
+                        navigate("/register")
+                    }else if (response.data.message === "CV created redirecting to the download page") {
+                            navigate("/resume")
+                    }
                 })
                 .catch(error => {
                     console.error("Registration failed:", error);
@@ -110,38 +125,6 @@ function Mainform() {
         }
     
 
-    // if( page>5){
-    //     return 
-    // }else if (page==5){ 
-    //     const UserData = {
-            // "fName":formmdata.firstName,
-            // "lName":formmdata.lastName,
-            // "email":formmdata.email,
-            // "city":formmdata.city,
-            // "country":formmdata.country,
-            // "pincode":formmdata.pincode,
-            // "phone":formmdata.phone,
-            // "schoolName": formmdata.schoolName,
-            // "slocation": formmdata.slocation,
-            // "degree": formmdata.degree,
-            // "fos": formmdata.fos,
-            // "gdate": formmdata.gdate,
-            // "title": formmdata.title,
-            // "organization": formmdata.organization,
-            // "location": formmdata.location,
-            // "startdate": formmdata.startdate,
-            // "enddate": formmdata.enddate,
-            // "experience":formmdata.experience,
-            // "skills":formmdata.skills,
-            // "aboutuser":formmdata.aboutuser
-    //     }
-    //     axios.post("http://localhost:3000/form",UserData)
-    // }
-    // else{
-    //     setpage(page+1)
-    //     console.log(page)
-    //     console.log(formmdata)
-    // }
 }
 
 function handlePrev(){
@@ -157,7 +140,7 @@ function handlePrev(){
   return (
    <>
         <Navbar></Navbar>
-        <h2 id="r1form">{returnpage()} </h2>
+        {returnpage()} 
         <div className='Form1'>
         <Button name='Prev' id='black'  onclick={handlePrev}></Button>
         <Button name='Next' id='black' onclick={handleNext}></Button>

@@ -6,7 +6,11 @@ import './Register.css'
 import axios from './../../api/axios'
 import Footer from './footer'
 import Navbar from '../navbar'
+import { useNavigate } from 'react-router-dom'
 function Register() {
+
+    const navigate = useNavigate(); 
+  
 
     const [values, setvalues]=useState(
       {
@@ -66,15 +70,33 @@ function Register() {
 
       const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log('submitted')
-        axios.post('/register', values,{
-            headers:{'Content-Type':'application/json'},
-            withCredentials:true
-        })
-        .then(Response=>console.log(Response.data))
-        .catch(err=>console.log(err))
-      }
+      //   axios.post('/register', values,{
+      //       headers:{'Content-Type':'application/json'},
+      //       withCredentials:true
+      //   }).then((response) => {
+      //     console.log(here);
+      //     if (response.status == 301) {
+      //         console.log("here")
+      //         navigate('/login');
+      //     }
+      // })
+      // .catch(err=>console.log(err))
+      // }
 
+      axios.post('/register', values, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true
+    })
+    .then((response) => {
+        console.log("Response received:", response.data);
+        if (response.data === "redirect to login") {
+            console.log("Redirecting to login...");
+            navigate('/login');
+        }
+    })
+    .catch((err) => {
+        console.log("Error occurred:", err);
+    });}
       const onChange = (e)=>{
         setvalues({...values,[e.target.name]:e.target.value})
       }
