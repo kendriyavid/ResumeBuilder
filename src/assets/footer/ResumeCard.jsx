@@ -18,18 +18,18 @@ function ResumeCard({ onCardClick }) {
         }
 
         fetchData();
-    }, []); // Empty dependency array ensures that useEffect only runs once, similar to componentDidMount
+    }, []);
 
     return (
         <div className='CardComponent'>
-            {kards.map((resume, index) => (
-                <div className='card' key={index} onClick={() => onCardClick(resume.name)}>
-                    <div id='text'>
-                        <img src={`http://localhost:3000/${resume.image}`} alt={resume.name} style={{ height: '300px', width: '200px' }}/> {/* Display image using src attribute */}
-                        <h2 id={resume.id}>{resume.name}</h2>
+                {kards.map((resume, index) => (
+                    <div className='card' key={index} onClick={() => onCardClick(resume.name)}>
+                        <div id='text'>
+                            <img src={`http://localhost:3000/${resume.image}`} alt={resume.name} style={{ height: '300px', width: '200px' }}/> 
+                            <h2 id={resume.id}>{resume.name}</h2>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
         </div>
     );
 }

@@ -231,6 +231,7 @@ function Card({ onCardClick }) {
 
     return (
         <div className='CardComponent'>
+            <div className='InsideCard'>
             {kards.map((values) => (
                 <div className='card' key={values.id} onClick={() => onCardClick(values.id, values.smhd)}>
                     <div id='text'>
@@ -239,6 +240,7 @@ function Card({ onCardClick }) {
                     </div>
                 </div>
             ))}
+            </div>
         </div>
     );
 }

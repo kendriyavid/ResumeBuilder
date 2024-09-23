@@ -3,31 +3,40 @@
 
 div.CardComponent{
     height: 75vh;
-    font-family: 'Sora', sans-serif;
-
     justify-content: center;
-    margin: auto;
+    flex-grow: 1;
+    flex-direction: column;
     display: flex;
+    flex-wrap: wrap;
 }
 
 div.card{
     flex-basis: content;
-    padding-top: 40px;
-    background: linear-gradient(81deg, #4162db, #db353e);
+    /* background: linear-gradient(81deg, #4162db, #db353e); */
+    background-color: antiquewhite;
     border-radius: 8px;
     align-items: center;
+    height: 30vh;
     display: flex;
     justify-content: center;
+    padding: 20px;
     margin: 20px;
 }
 
 div#text{
 
     border-radius: 8px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
     align-self: center;
+}
+
+div.InsideCard{
+    height: 75vh;
+    font-family: 'Sora', sans-serif;
+    justify-content: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /* @media only screen and (max-width: 430px) {

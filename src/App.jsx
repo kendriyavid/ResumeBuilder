@@ -14,8 +14,8 @@ function App (){
     <Route path='/' element={<Layout/>}>
         <Route path='/' element={<Homepage/>}></Route>
         <Route path='/templates' element={<Homepage/>}></Route>
-        <Route path='/resume' element={<Resume/>}></Route>
         <Route element={<RequireAuth/>}>
+          <Route path='/resume' element={<Resume/>}></Route>
           <Route path='/resumebuilder' element={<Mainform/>}></Route>
         </Route>
         <Route path='/login' element={<Login/>}></Route>

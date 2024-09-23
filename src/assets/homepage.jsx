@@ -19,7 +19,6 @@ function Homepage() {
             </div>
         </div>
         <div id="CC">
-            {/* <Card></Card> */}
         </div>
         <Footer></Footer>
         </>

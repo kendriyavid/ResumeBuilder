@@ -12,6 +12,7 @@ import useAxiosPrivate from '../../hooks/useaxiosPrivate.js'
 import Form6 from './Form6.jsx'
 import { useNavigate } from 'react-router-dom'
 import Form0 from './Form0.jsx'
+import "./mainform.css"
 
 
 function Mainform() {

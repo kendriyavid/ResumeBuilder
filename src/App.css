@@ -17,3 +17,9 @@ div#container{
   min-height: 100vh;
 }
 
+main.App{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+

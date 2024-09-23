@@ -7,14 +7,22 @@ import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
 function Navbar (){
     const name = Cookies.get('jwt')
+    console.log(name)
     const navigate = useNavigate(); // Get the navigate function from React Router
 
     
     const handleLogout = () => {
         console.log("here")
         console.log(name)
-        axios.get('http://localhost:3000/logout',{withCredentials:true})
-        navigate('/');
+        axios.get('http://localhost:3000/logout', { withCredentials: true })
+            .then(() => {
+                Cookies.remove('jwt'); // Delete the JWT cookie
+                navigate('/');
+            })
+            .catch(error => {
+                console.error('Logout error:', error);
+            });
+
     };
 
     return(
@@ -25,7 +33,7 @@ function Navbar (){
         </div>
         <div id='mid'>
             <Button  id='white' type='button' class='mid' name ="Resume" to='/resume'></Button>
-            <Button id='white' type='button' class='mid' name ="Templates"></Button>
+            {/* <Button id='white' type='button' class='mid' name ="Templates"></Button> */}
             <Button id='white' type='button' class='mid' name ="About Us"></Button>
         </div >
         <div id='end'>

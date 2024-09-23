@@ -1,11 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap');
 
+body {
+    font-family: 'Sora', sans-serif;
+    min-height: 100vh; /* Ensure the body covers the full viewport height */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
 
 div#hero{
     height: 560px;
-
+    flex-grow: 1;
     display: flex;
     justify-content: center;
+
+    /* flex-grow: 1; /* Allow the hero section to grow and take up remaining space */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */ 
 }
 
 div#one{
@@ -50,14 +63,26 @@ div#one div#insideone{
     padding:60px;
 }
 
-p#hero{
+/* p#hero{
     font-size: 32px;
+} */
+
+p#hero {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 h1{
     color: cornsilk;
     border: black;
 }
+
+/* #Footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; 
+  }
+   */
 
 @media screen and ( max-width: 430px) {
     div#one{

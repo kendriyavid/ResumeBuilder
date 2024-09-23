@@ -58,14 +58,14 @@ function Form(props) {
     {
       id:6,
       name: "pincode",
-      type: "text",
+      type: "number",
       label:"Pin-Code",
       required:true
     },
     {
       id:7,
       name: "phone",
-      type: "text",
+      type: "number",
       label:"Phone",
       required:true
     },

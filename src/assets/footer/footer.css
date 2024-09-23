@@ -5,10 +5,10 @@ div#Footer{
 div#footer{
     display: flex;
     background-color: black;
-    height: 200px;
+    height: 150px;
     -moz-border-radius: 0px;
     -webkit-border-radius: 100px 100px 0px 0px;
-    border-radius: 100px 100px 0px 0px; 
+    border-radius: 90px 90px 0px 0px; 
     font-family: 'Sora', sans-serif;
 
 }

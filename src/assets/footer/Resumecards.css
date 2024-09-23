@@ -1,26 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap');
 
 
 div.CardComponent{
-    height: 75vh;
+    height: 30vh;
     font-family: 'Sora', sans-serif;
-
     justify-content: center;
     margin: auto;
     display: flex;
-}
+} */
 
-div.card{
+/* div.card{
     flex-basis: content;
-    padding-top: 40px;
     background: linear-gradient(81deg, #4162db, #db353e);
     border-radius: 8px;
     align-items: center;
     display: flex;
     justify-content: center;
     margin: 20px;
-}
-
+} */
+/* 
 div#text{
 
     border-radius: 8px;
@@ -28,7 +26,9 @@ div#text{
     padding-right: 20px;
     padding-bottom: 20px;
     align-self: center;
-}
+} */
+
+
 
 /* @media only screen and (max-width: 430px) {
     form#one{
