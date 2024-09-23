@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import 'react-quill/dist/quill.snow.css';
 import Button from '../button';
-import Textarea from './textarea';
+import Textarea from './Textarea';
 function Form4(props) {
 
     // function submit(){

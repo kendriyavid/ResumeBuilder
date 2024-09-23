@@ -25,7 +25,7 @@ function ResumeCard({ onCardClick }) {
                 {kards.map((resume, index) => (
                     <div className='card' key={index} onClick={() => onCardClick(resume.name)}>
                         <div id='text'>
-                            <img src={`${process.env.REACT_APP_BASE_URL}${resume.image}`} alt={resume.name} style={{ height: '300px', width: '200px' }}/>
+                            <img src={`${process.env.VITE_APP_BASE_URL}${resume.image}`} alt={resume.name} style={{ height: '300px', width: '200px' }}/>
                             <h2 id={resume.id}>{resume.name}</h2>
                         </div>
                     </div>
