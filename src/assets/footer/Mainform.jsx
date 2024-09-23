@@ -108,7 +108,7 @@ function Mainform() {
             "aboutuser":formmdata.aboutuser,
             "selectedTemplate": selectedTemplate
     };
-            axiosPrivate.post("http://localhost:3000/form", UserData,{withCredentials:true})
+            axiosPrivate.post("form", UserData,{withCredentials:true})
                 .then(response => {
                     if (response.data.message ==="Unauthorized"){
                         navigate("/register")
