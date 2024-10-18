@@ -1,12 +1,30 @@
-# Resume Builder 
-Fullstack Resume-Builder website using
-- ReactJS
-- ExpressJS
+# 🌟 Zeity Resume Builder
 
-This is frontend part of the code
+Zeity is a modern resume builder application that empowers users to create professional and visually appealing resumes with ease. With a focus on user experience, Zeity offers multiple templates and customizable features to help individuals stand out in their job applications. ✨
 
-## Latest Updates
+## 📚 Table of Contents
 
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Contact](#contact)
+
+## 🚀 Features
+
+- **User Authentication:** Secure registration and login for users. 🔐
+- **Multiple Templates:** Choose from a variety of professionally designed resume templates. 🎨
+- **Customizable Sections:** Add, edit, and remove sections such as experience, education, skills, and more. 📝
+- **Export Options:** Download resumes in DOCX formats for customizability. 📄
+- **Multi-resume Support:** Save and manage multiple resumes for different job applications. 📁
+
+## ⚙️ Technologies Used
+
+- **Frontend:** React.js, Vite
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB Atlas
+- **Deployment:** Render
+
+## Snapshots
 ### Personal Details 
 ![image](https://github.com/kendriyavid/ResumeBuilder/assets/32327145/9dcbe6b7-0819-4414-9802-55c0d04ac2ad)
 
